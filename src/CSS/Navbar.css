@@ -1,0 +1,88 @@
+/* Navbar.css */
+
+.navbar {
+    width: 100%;
+    height: auto;
+    padding: 3px;
+    background-color: #1a202c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    color: white;
+    z-index: 10;
+    flex-direction: column;
+  }
+  
+  @media (min-width: 48em) { /* md breakpoint */
+    .navbar {
+      height: 95px;
+      padding: 5px;
+      flex-direction: row;
+    }
+  }
+  
+  .navbar .wrap {
+    width: 100%;
+  }
+  
+  @media (min-width: 48em) { /* md breakpoint */
+    .navbar .wrap {
+      width: auto;
+    }
+  }
+  
+  .navbar .form-control {
+    width: 90%;
+  }
+  
+  @media (min-width: 48em) { /* md breakpoint */
+    .navbar .form-control {
+      width: 50%;
+    }
+  }
+  
+  .input-group {
+    border: 2px solid #a0aec0;
+  }
+  
+  .input-group:hover {
+    border-color: #718096;
+  }
+  
+  .input-group:focus-within {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 1px #3182ce;
+  }
+  
+  .search-button {
+    height: 100%;
+    background-color: black;
+    color: white;
+  }
+  
+  .search-button:hover {
+    background-color: gray;
+    color: black;
+  }
+  
+  .avatar-box {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ml-2 {
+    margin-left: 0.5rem;
+  }
+  
+  .hidden-md {
+    display: none;
+  }
+  
+  @media (min-width: 48em) { /* md breakpoint */
+    .hidden-md {
+      display: block;
+    }
+  }
+  

@@ -1,0 +1,38 @@
+.item-Box {
+  margin: 10px;
+  padding: 10px;
+  background-color: #111827;
+  color: white;
+  text-align: center;
+}
+
+.item-HStack {
+  display: flex;
+  overflow-x: hidden;
+  margin: 10px;
+  padding: 10px;
+  background-color: #111827;
+  position: relative;
+}
+
+.item-HStack > * {
+  flex: 0 0 auto;
+}
+
+.item-image {
+  width: 100%;
+  height: auto;
+}
+
+.item-heading {
+  color: black;
+}
+
+.item-description {
+  color: gray;
+}
+
+.item-price {
+  color: rgb(25, 7, 223);
+  font-weight: bold;
+}

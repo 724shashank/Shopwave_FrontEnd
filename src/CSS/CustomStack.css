@@ -1,0 +1,40 @@
+/* CustomStack.css */
+
+#customStack {
+    margin: 10px;
+    padding: 10px;
+    background-color: #111827;
+  }
+  
+  #innerBox {
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    padding: 10px; /* Default padding for small screens */
+  }
+  
+  @media (min-width: 768px) {
+    #innerBox {
+      padding: 20px; /* Padding for medium and larger screens */
+    }
+  }
+  
+  #innerBox::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers (Chrome, Safari, etc.) */
+  }
+  
+  
+  .customBox {
+    background-color: rgb(253, 247, 247);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+ 

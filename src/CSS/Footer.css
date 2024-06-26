@@ -1,0 +1,25 @@
+/* Footer.css */
+.footer-box {
+    background-color: #2d3748; /* gray.800 */
+    color: white;
+    padding: 30px;
+  }
+  
+  .footer-avatar {
+    margin-left: 10px; /* Adjust as needed */
+  }
+  
+  .footer-divider {
+    margin-left: 20px;
+  }
+  
+  .footer-text {
+    font-size: 0.875rem; /* equivalent to fontSize="sm" */
+    text-align: center; /* Adjust as needed */
+    margin-left: 10px;
+  }
+  
+  .footer-icons {
+    margin-right: 15px; /* Adjust as needed */
+  }
+  
