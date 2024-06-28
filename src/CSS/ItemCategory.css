@@ -1,0 +1,25 @@
+.item-Box {
+    background-color: #111827;
+    margin: 10px;
+    padding: 10px;
+}
+
+.item-image {
+    /* Add your image styles here if any */
+}
+
+.item-heading {
+    /* Add your heading styles here if any */
+}
+
+.item-description {
+    /* Add your description styles here if any */
+}
+
+.item-price {
+    /* Add your price styles here if any */
+}
+
+.item-HStack {
+    margin-top: 10px;
+}
