@@ -41,4 +41,4 @@ export const CustomCarousel = () => {
   );
 };
 
-export default CustomCarousel;
+
