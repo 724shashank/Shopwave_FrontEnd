@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardBody, Image, Stack, Heading, Text, Divider, Button, Box, Flex, IconButton, SimpleGrid } from '@chakra-ui/react';
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+import { addToCart } from '../redux/slice/addToCart';
 import { useDispatch, useSelector } from 'react-redux';
 import { categoryProd } from '../redux/slice/categoryProd';
 import { useParams } from 'react-router-dom';
-import '../CSS/ItemCategory.css'; 
+import '../CSS/ItemCategory.css';
 
 const ItemCategory = () => {
     const dispatch = useDispatch();
@@ -42,6 +43,10 @@ const ItemCategory = () => {
         }
     };
 
+    const handleAddToCart = (productId, quantity) => {
+        dispatch(addToCart({ productId, quantity }));
+    };
+
     return (
         <>
             <Box className='item-Box'><h1>{`Best Of ${category}`}</h1></Box>
@@ -64,7 +69,12 @@ const ItemCategory = () => {
                                     <Text className='item-price'>
                                         ₹{product.price}
                                     </Text>
-                                    <Button variant='outline' colorScheme='black' bgColor='gold'>
+                                    <Button
+                                        variant='outline'
+                                        colorScheme='black'
+                                        bgColor='gold'
+                                        onClick={() => handleAddToCart(product._id, 1)}
+                                    >
                                         Add to cart
                                     </Button>
                                 </Flex>

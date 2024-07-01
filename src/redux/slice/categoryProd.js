@@ -15,15 +15,15 @@ const categorySlice = createSlice({
     },
 
     extraReducers: (builder) => {
-        builder
-            .addCase(categoryProd.pending, (state, action) => {
+        
+            builder.addCase(categoryProd.pending, (state, action) => {
                 state.isLoading = true;
             })
-            .addCase(categoryProd.fulfilled, (state, action) => {
+            builder.addCase(categoryProd.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.data = action.payload;
             })
-            .addCase(categoryProd.rejected, (state, action) => {
+            builder.addCase(categoryProd.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 console.error("Error", action.error);

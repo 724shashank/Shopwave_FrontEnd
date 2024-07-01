@@ -3,6 +3,7 @@ import { Card, CardBody, Image, Stack, Heading, Text, Divider, Button, Flex, HSt
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../redux/slice/product';
+import { addToCart } from '../redux/slice/addToCart';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../CSS/Item.css';
 
@@ -56,6 +57,10 @@ const Item = () => {
         })
     };
 
+    const handleAddToCart = (productId, quantity) => {
+        dispatch(addToCart({ productId, quantity }));
+    };
+
     return (
         <>
             <Box className='item-Box'><h1 justify="center">Best Of Electronics</h1></Box>
@@ -89,7 +94,12 @@ const Item = () => {
                                             <Text className='item-price'>
                                                 ₹{product.price}
                                             </Text>
-                                            <Button variant='outline' colorScheme='black' bgColor='gold'>
+                                            <Button
+                                                variant='outline'
+                                                colorScheme='black'
+                                                bgColor='gold'
+                                                onClick={() => handleAddToCart(product._id, 1)}
+                                            >
                                                 Add to cart
                                             </Button>
                                         </Flex>

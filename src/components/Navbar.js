@@ -1,8 +1,20 @@
 import React from 'react';
-import { Box, Wrap, WrapItem, Avatar, FormControl, Input, Button, InputGroup, InputRightElement, Text } from '@chakra-ui/react';
+import { Box, Wrap, WrapItem, Avatar, FormControl, Input, Button, InputGroup, InputRightElement, Tooltip } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import '../CSS/Navbar.css'; // Import the CSS file
 
 export const Navbar = () => {
+  const cart = useSelector((state) => state.cart); // Access cart state from Redux
+  const navigate = useNavigate();
+  
+
+  const Viewcart = () => {
+   
+    navigate('/viewCart');
+  };
+  
+
   return (
     <Box className="navbar">
       <Wrap align="center" justify={{ base: "center", md: "flex-start" }} className="wrap">
@@ -16,6 +28,7 @@ export const Navbar = () => {
             <Input
               type="text"
               placeholder="Search..."
+           
             />
             <InputRightElement width="5rem">
               <Button className="search-button">
@@ -29,19 +42,18 @@ export const Navbar = () => {
         <WrapItem>
           <Box className="avatar-box">
             <Avatar size="md" src='https://bit.ly/prosper-baba' />
-            <Text className="ml-2 hidden-md">Shashank</Text>
           </Box>
         </WrapItem>
         <WrapItem>
-          <Box className="avatar-box">
-            <Avatar h='30px' w='30px' size="md" src='/icons/cart.png' />
-            <Text className="ml-2 hidden-md">Cart</Text>
-          </Box>
-        </WrapItem>
-        <WrapItem>
-          <Box className="avatar-box">
-            <Avatar h='25px' w='25px' size="md" src='/icons/moon.png' />
-          </Box>
+          <Tooltip label="Cart">
+            <Box className="avatar-box" position="relative">
+              <Avatar h='40px' w='40px' size="md" src='/icons/cart.png' />
+              <Box className='cart-badge' onClick={Viewcart}>
+                {cart.data.items.length?cart.data.items.length:0}
+              </Box>
+              
+            </Box>
+          </Tooltip>
         </WrapItem>
       </Wrap>
     </Box>

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Navbar } from './components/Navbar';
+import  Navbar  from './components/Navbar';
 import { CustomStack } from './components/CustomStack';
 import  {CustomCarousel}  from './components/CustomCarousel';
 import Item from './components/Item';
 import { Footer } from './components/Footer';
 import { Routes, Route } from 'react-router-dom';
-import CategoryView from './components/CategoryView'
+import {CategoryView} from './components/CategoryView'
+import {CartModal} from './components/CartModal'
 
 const Home = () => {
   return (
@@ -23,7 +24,8 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/CategoryView/:category" element={<CategoryView />} />
+      <Route path="/CategoryView/:category" element={<CategoryView/>} />
+      <Route path="/viewCart" element={<CartModal/>} />
     </Routes>
   );
 };

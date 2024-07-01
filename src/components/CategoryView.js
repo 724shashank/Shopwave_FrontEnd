@@ -3,7 +3,7 @@ import CustomStack from "./CustomStack";
 import ItemCategory from "./ItemCategory";
 import Navbar from "./Navbar";
 
-const CategoryView=()=>{
+export const CategoryView=()=>{
     return(
 <>
         <Navbar />
@@ -13,6 +13,3 @@ const CategoryView=()=>{
 </>
     )
 }
-
-
-export default CategoryView;

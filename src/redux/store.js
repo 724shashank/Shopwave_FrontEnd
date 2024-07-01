@@ -1,14 +1,16 @@
 // redux/store.js
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import view_Products from "./slice/product";
+import fetchProducts from "./slice/product";
 import categoryView from "./slice/categoryProd";
+import addToCart from "./slice/addToCart";
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 // Combine reducers
 const rootReducer = combineReducers({
-  products: view_Products,
+  products: fetchProducts,
   category: categoryView,
+  cart: addToCart,
 });
 
 // Configure persistReducer
