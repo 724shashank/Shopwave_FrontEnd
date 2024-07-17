@@ -22,6 +22,7 @@ const categorySlice = createSlice({
             builder.addCase(categoryProd.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.data = action.payload;
+                state.isError = false
             })
             builder.addCase(categoryProd.rejected, (state, action) => {
                 state.isLoading = false;

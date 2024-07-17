@@ -20,6 +20,7 @@ const productSlice = createSlice({
         builder.addCase(fetchProducts.fulfilled,(state,action)=>{
             state.isLoading = false;
             state.data = action.payload;
+            state.isError = false;
         });
         builder.addCase(fetchProducts.rejected,(state,action)=>{
            console.log('Error', action.payload);

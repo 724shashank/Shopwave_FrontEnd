@@ -14,60 +14,33 @@ export const CustomStack = () => {
     navigate(`/CategoryView/${category}`);
   };
 
+  const categories = [
+    { label: 'TV', icon: '/icons/category/tv.png' },
+    { label: 'Phones', icon: '/icons/category/phone.png' },
+    { label: 'Laptops', icon: '/icons/category/laptop.png' },
+    { label: 'Tablets', icon: '/icons/category/tablet.png' },
+    { label: 'TWS', icon: '/icons/category/tws.png' },
+    { label: 'Headphones', icon: '/icons/category/headphone.png' },
+    { label: 'Speakers', icon: '/icons/category/speaker.png' },
+    { label: 'Cables', icon: '/icons/category/cable.png' },
+    { label: 'Hard Disks', icon: '/icons/category/harddisk.png' },
+    { label: 'Memory Cards', icon: '/icons/category/memorycard.png' },
+  ];
+
   return (
     <Box id='customStack'>
       <Box id='innerBox'>
         <HStack spacing={{ base: "10px", md: "40px" }} align="center">
-          <Tooltip label="TV">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('TV')}>
-              <img src='/icons/category/tv.png' alt='TV' />
-            </Box>
-          </Tooltip>
-          <Tooltip label="Phones">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('Phones')}>
-              <img src='/icons/category/phone.png' alt='Phone' />
-            </Box>
-          </Tooltip>
-          <Tooltip label="Laptops">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('Laptops')}>
-              <img src='/icons/category/laptop.png' alt='Laptop' />
-            </Box>
-          </Tooltip>
-          <Tooltip label="Tablets">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('Tablets')}>
-              <img src='/icons/category/tablet.png' alt='Tablet' />
-            </Box>
-          </Tooltip>
-          <Tooltip label="TWS">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('TWS')}>
-              <img src='/icons/category/tws.png' alt='True Wireless Earbuds' />
-            </Box>
-          </Tooltip>
-          <Tooltip label="Headphones">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('Headphone')}>
-              <img src='/icons/category/headphone.png' alt='Headphone' />
-            </Box>
-          </Tooltip>
-          <Tooltip label="Speakers">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('Speaker')}>
-              <img src='/icons/category/speaker.png' alt='Speaker' />
-            </Box>
-          </Tooltip>
-          <Tooltip label="Cables">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('Cable')}>
-              <img src='/icons/category/cable.png' alt='Cable' />
-            </Box>
-          </Tooltip>
-          <Tooltip label="Hard Disks">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('Harddisk')}>
-              <img src='/icons/category/harddisk.png' alt='Hard Disk' />
-            </Box>
-          </Tooltip>
-          <Tooltip label="Memory Cards">
-            <Box className='customBox' onClick={() => fetchCategoryProducts('Memorycard')}>
-              <img src='/icons/category/memorycard.png' alt='Memory Card' />
-            </Box>
-          </Tooltip>
+          {categories.map((category) => (
+            <Tooltip key={category.label} label={category.label}>
+              <Box
+                className='customBox'
+                onClick={() => fetchCategoryProducts(category.label)}
+              >
+                <img src={category.icon} alt={category.label} />
+              </Box>
+            </Tooltip>
+          ))}
         </HStack>
       </Box>
     </Box>
