@@ -21,6 +21,26 @@ export const addToCart = createAsyncThunk('cart/addToCart', async ({ productId, 
   }
 });
 
+export const remove = createAsyncThunk('removeItem', async ({productId}) => {
+  try {
+    const response = await fetch(`http://localhost:5000/api/cart/removeitem/${productId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'authtoken': `${authToken}`
+      }
+    });
+    if (!response.ok) {
+      throw new Error('Failed to Remove the item from cart');
+    }
+    return response.json();
+  } catch (error) {
+    console.error('Error in Removing item from cart:', error);
+    throw error;
+  }
+});
+
+
 const CartSlice = createSlice({
   name: 'cart',
   initialState: {
@@ -42,8 +62,23 @@ const CartSlice = createSlice({
       .addCase(addToCart.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
+      })
+
+      .addCase(remove.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+      })
+      .addCase(remove.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.data = action.payload;
+        state.isError = false;
+      })
+      .addCase(remove.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
       });
   }
+
 });
 
 export default CartSlice.reducer;

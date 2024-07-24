@@ -5,16 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import '../CSS/Navbar.css'; // Import the CSS file
 
 export const Navbar = () => {
-  const cart = useSelector((state) => state.cart); // Access cart state from Redux
+  const cart = useSelector((state) => state.cart.data.items || []);
+
+
+
   const navigate = useNavigate();
   
-
   const Viewcart = () => {
-   
     navigate('/viewCart');
   };
   
-
   return (
     <Box className="navbar">
       <Wrap align="center" justify={{ base: "center", md: "flex-start" }} className="wrap">
@@ -28,7 +28,6 @@ export const Navbar = () => {
             <Input
               type="text"
               placeholder="Search..."
-           
             />
             <InputRightElement width="5rem">
               <Button className="search-button">
@@ -49,9 +48,8 @@ export const Navbar = () => {
             <Box className="avatar-box" position="relative">
               <Avatar h='40px' w='40px' size="md" src='/icons/cart.png' />
               <Box className='cart-badge' onClick={Viewcart}>
-                {cart.data.items.length?cart.data.items.length:0}
+                {cart.length || 0}
               </Box>
-              
             </Box>
           </Tooltip>
         </WrapItem>

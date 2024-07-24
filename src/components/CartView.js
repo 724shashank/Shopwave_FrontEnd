@@ -4,13 +4,16 @@ import { AddIcon, MinusIcon, DeleteIcon } from '@chakra-ui/icons';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import '../CSS/CartView.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { remove, addToCart } from '../redux/slice/addToCart';
 import axios from 'axios';
 
 export const CartView = () => {
-  const cart = useSelector((state) => state.cart.data?.items || []);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.data.items || []);
   const total = useSelector((state) => state.cart.data?.totalPrice || 0);
   const [productDetails, setProductDetails] = useState({});
+  const [counters, setCounters] = useState([cart.quantity]);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -29,6 +32,33 @@ export const CartView = () => {
     fetchProductDetails();
   }, [cart]);
 
+  useEffect(() => {
+    setCounters(cart.map((item)=> item.quantity));
+  }, [cart]);
+
+  const handleIncrement = (index) => {
+    counters[index] += 1;
+    setCounters(counters);
+    updateCart(cart[index].product, counters[index]);
+  };
+  
+  const handleDecrement = (index) => {
+    if (counters[index] > 1) {
+      counters[index] -= 1;
+      setCounters(counters);
+      updateCart(cart[index].product, counters[index]);
+    }
+  };
+  
+  
+  const handleRemoveItem = (productId) => {
+    dispatch(remove({ productId }));
+  };
+
+  const updateCart = (productId, quantity) => {
+    dispatch(addToCart({ productId, quantity }));
+  };
+
   return (
     <>
       <Navbar />
@@ -36,9 +66,8 @@ export const CartView = () => {
       <Flex className="flex-container">
         <Box className="main-box">
           <Box className="scroll-box">
-            {cart.map((item) => {
+            {cart.map((item, index) => {
               const productDetail = productDetails[item.product] || {};
-
 
               return (
                 <React.Fragment key={item._id}>
@@ -46,9 +75,9 @@ export const CartView = () => {
                     <Box w='25%' height='250px' bgColor='blue'>
                       <img src={productDetail.imageUrl || "/icons/Not_Found.png"} alt={productDetail.name} style={{ height: 150, width: 160, marginLeft: 45, marginTop: 25 }} />
                       <Flex justify="space-between" width='200px' marginLeft='20px' marginTop='20px'>
-                        <Button style={{ width: 20, borderRadius: "100%" }}><MinusIcon /></Button>
-                        <Box style={{ height: 40, width: 60, backgroundColor: 'green', justifyContent: 'center', alignItems: 'center', display: 'flex', }}>{item.quantity}</Box>
-                        <Button style={{ width: 20, borderRadius: "100%" }}><AddIcon /></Button>
+                        <Button onClick={() => handleDecrement(index)} style={{ width: 20, borderRadius: "100%" }} ><MinusIcon /></Button>
+                        <Box style={{ height: 40, width: 60, backgroundColor: 'green', justifyContent: 'center', alignItems: 'center', display: 'flex', }}>{counters[index]}</Box>
+                        <Button onClick={() => handleIncrement(index)} style={{ width: 20, borderRadius: "100%" }}><AddIcon /></Button>
                       </Flex>
                     </Box>
                     <Box w="60%" height='250px' bgColor='green'>
@@ -61,7 +90,7 @@ export const CartView = () => {
                       </Stack>
                     </Box>
                     <Box w="15%" height='250px' bgColor='grey' display='flex' justifyContent='center' alignItems='center'>
-                      <Button style={{ width: 50, height: 50, borderRadius: '100%' }}>
+                      <Button style={{ width: 50, height: 50, borderRadius: '100%' }} onClick={() => handleRemoveItem(item.product)}>
                         <DeleteIcon />
                       </Button>
                     </Box>
@@ -73,9 +102,8 @@ export const CartView = () => {
           </Box>
           <Stack className="footer-stack">
             <Flex>
-              <Box>
-                <Text>Deliver To: Shashank Yadav, 261001</Text>
-                <Text>18 Lohar Bagh Sitapur, UP...</Text>
+              <Box marginRight="500px">
+                <Text>Deliver To:</Text><Text> Shashank Yadav, 261001 18 Lohar Bagh Sitapur, UP...</Text>
               </Box>
               <Button style={{ width: 200, height: 50, backgroundColor: 'orange', color: 'white', marginLeft: 'auto', fontSize: 25 }}>CHECK OUT</Button>
             </Flex>
@@ -120,3 +148,5 @@ export const CartView = () => {
     </>
   );
 };
+
+export default CartView;

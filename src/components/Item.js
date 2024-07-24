@@ -10,28 +10,26 @@ import '../CSS/Item.css';
 const Item = () => {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.products);
-    const [currentIndex, setCurrentIndex] = useState(0); // Track current index of displayed products
-    const [direction, setDirection] = useState(0); // Track direction of navigation
-    const displayCount = 4; // Number of products to display at a time
+    const cartItems = useSelector((state) => state.cart.data.items);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [direction, setDirection] = useState(0);
+    const displayCount = 4;
 
-    // Fetch products when the component mounts
     useEffect(() => {
         dispatch(fetchProducts());
     }, [dispatch]);
 
-    // Navigate to the next set of products
     const nextProducts = () => {
         if (currentIndex + displayCount < products.data.length) {
             setCurrentIndex(currentIndex + 1);
-            setDirection(1); // Set direction to next
+            setDirection(1);
         }
     };
 
-    // Navigate to the previous set of products
     const prevProducts = () => {
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
-            setDirection(-1); // Set direction to previous
+            setDirection(-1);
         }
     };
 
@@ -39,7 +37,6 @@ const Item = () => {
         return <h1>Loading...</h1>;
     }
 
-    // Calculate the displayed products with null check for products.data
     const displayedProducts = products.data.slice(currentIndex, currentIndex + displayCount);
 
     const variants = {
@@ -94,14 +91,27 @@ const Item = () => {
                                             <Text className='item-price'>
                                                 ₹{product.price}
                                             </Text>
-                                            <Button
-                                                variant='outline'
-                                                colorScheme='black'
-                                                bgColor='gold'
-                                                onClick={() => handleAddToCart(product._id, 1)}
-                                            >
-                                                Add to cart
-                                            </Button>
+                                            <span>
+                                                {cartItems.some(item => item.product === product._id) ? (
+                                                    <Button
+                                                        variant='outline'
+                                                        colorScheme='black'
+                                                        bgColor='gold'
+                                                        disabled
+                                                    >
+                                                        Item Added
+                                                    </Button>
+                                                ) : (
+                                                    <Button
+                                                        variant='outline'
+                                                        colorScheme='black'
+                                                        bgColor='gold'
+                                                        onClick={() => handleAddToCart(product._id, 1)}
+                                                    >
+                                                        Add to cart
+                                                    </Button>
+                                                )}
+                                            </span>
                                         </Flex>
                                     </Stack>
                                 </CardBody>
@@ -111,8 +121,7 @@ const Item = () => {
                 </AnimatePresence>
             </HStack>
 
-            {/* Previous and Next Buttons */}
-            <Flex justify='space-between' mt='4' className='item-Box' >
+            <Flex justify='space-between' mt='4' className='item-Box'>
                 <IconButton
                     icon={<ArrowBackIcon />}
                     onClick={prevProducts}
@@ -131,3 +140,5 @@ const Item = () => {
 }
 
 export default Item;
+
+//".some" method is efficient for checking the existence of an item in a list without needing to manually loop through the entire array and helps in implementing features like disabling add-to-cart buttons for items that are already added to the cart.

@@ -11,7 +11,7 @@ const ItemCategory = () => {
     const dispatch = useDispatch();
     const { category } = useParams();
     const products = useSelector((state) => state.category);
-
+    const cartItems = useSelector((state) => state.cart.data.items);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
 
@@ -69,14 +69,27 @@ const ItemCategory = () => {
                                     <Text className='item-price'>
                                         ₹{product.price}
                                     </Text>
-                                    <Button
-                                        variant='outline'
-                                        colorScheme='black'
-                                        bgColor='gold'
-                                        onClick={() => handleAddToCart(product._id, 1)}
-                                    >
-                                        Add to cart
-                                    </Button>
+                                    <span>
+                                                {cartItems.some(item => item.product === product._id) ? (
+                                                    <Button
+                                                        variant='outline'
+                                                        colorScheme='black'
+                                                        bgColor='gold'
+                                                        disabled
+                                                    >
+                                                        Item Added
+                                                    </Button>
+                                                ) : (
+                                                    <Button
+                                                        variant='outline'
+                                                        colorScheme='black'
+                                                        bgColor='gold'
+                                                        onClick={() => handleAddToCart(product._id, 1)}
+                                                    >
+                                                        Add to cart
+                                                    </Button>
+                                                )}
+                                            </span>
                                 </Flex>
                             </Stack>
                         </CardBody>
