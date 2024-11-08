@@ -1,0 +1,46 @@
+/* Background and container styles */
+.login-container {
+    background-color: #2d3748; /* gray.800 */
+    padding: 1.5rem; /* p={6} */
+    border-radius: 0.375rem; /* borderRadius="md" */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* boxShadow="lg" */
+    max-width: 400px;
+    margin: 0 auto; /* mx="auto" */
+    color: #e2e8f0; /* gray.200 */
+  }
+    
+  .login-text {
+    margin-top: 1rem; /* mt={4} */
+    font-size: 0.875rem; /* fontSize="sm" */
+    text-align: center;
+  }
+  
+  /* Form control styles */
+  .form-control {
+    margin-bottom: 1rem; /* mb={4} */
+  }
+  
+  .form-input {
+    border-radius: 0.375rem; /* borderRadius="md" */
+    size: large; /* size="lg" */
+    background-color: #4a5568; /* gray.700 */
+    color: #e2e8f0; /* gray.200 */
+  }
+  
+  .form-input::placeholder {
+    color: #a0aec0; /* gray.400 */
+  }
+  
+  /* Button styles */
+  .login-button {
+    width: 100%; /* width="full" */
+    font-size: 1.125rem; /* size="lg" */
+    border-radius: 0.375rem; /* borderRadius="md" */
+    background: linear-gradient(to right, #ecc94b, #d69e2e) !important; /* bgGradient */
+    color: #fff;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(to right, #f6e05e, #b7791f) !important; /* _hover */
+  }
+  

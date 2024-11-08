@@ -1,0 +1,1 @@
+export const baseURL = `https://shopwave-backend-8kag.onrender.com`

@@ -1,0 +1,84 @@
+.list-products-header {
+    background-color: #f4cb39; 
+    height: 50px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.375rem; /* borderRadius="md" */
+}
+
+.list-products-header-text {
+    font-size: 1.25rem; /* fontSize="xl" */
+    color: white;
+    font-weight: bold;
+}
+
+.list-products-container {
+    background-color: #F7FAFC; /* gray.100 */
+    margin: 10px;
+    height: 550px;
+    overflow-y: scroll;
+    padding: 10px;
+    border-radius: 0.375rem; /* borderRadius="md" */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow */
+}
+
+.list-products-container::-webkit-scrollbar {
+    width: 0px;
+}
+
+.list-products-hstack {
+    spacing: 20px;
+    margin-top: 10px;
+}
+
+.product-image-box {
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 0.375rem; /* borderRadius="md" */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow */
+}
+
+.product-details-box {
+    background-color: white;
+    width: 100%;
+    height: 150px;
+    border-radius: 0.375rem; /* borderRadius="md" */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow */
+}
+
+.product-delete-box {
+    background-color: #f4cb39;
+    width: 100px;
+    height: 150px;
+    border-radius: 0.375rem; /* borderRadius="md" */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow */
+}
+
+.divider {
+    border-color: #000000 !important; /* Black divider */
+    border-width: -1px !important; /* Thicker border */
+    border-style: solid !important; /* Ensure the border is solid */
+    }
+
+
+/* Both Work Same
+.list-products-container .divider {
+    border-color: #000000; 
+    border-width: 3px; 
+    border-style: solid;
+    margin: 20px 0; 
+} */
+

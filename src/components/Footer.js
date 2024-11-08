@@ -13,7 +13,7 @@ export const Footer = () => {
         wrap='wrap'
       >
         <Flex align='center' mb={{ base: 4, md: 0 }} className='footer-avatar'>
-          <Avatar size="md" src='https://bit.ly/prosper-baba' />
+          <Avatar size="md" src='/logo/developer.jfif'/>
           <Text fontSize="lg" ml={2}>724shashank</Text>
         </Flex>
         

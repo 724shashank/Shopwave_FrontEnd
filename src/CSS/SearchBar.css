@@ -1,0 +1,64 @@
+.item-Box {
+  margin: 10px;
+  padding: 10px;
+  background-color: #111827;
+  color: white;
+  text-align: center;
+}
+
+.item-HStack {
+  display: flex;
+  overflow-x: hidden;
+  margin: 10px;
+  padding: 10px;
+  background-color: #111827;
+  position: relative;
+}
+
+.item-HStack>* {
+  flex: 0 0 auto;
+}
+
+.item-image {
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+}
+
+.item-heading {
+  color: black;
+}
+
+.item-description {
+  color: gray;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.filtered-results::-webkit-scrollbar {
+  display: none;
+  /* Hides the scrollbar */
+}
+
+/* Hide scrollbar for IE and Edge */
+.filtered-results {
+  -ms-overflow-style: none;
+  /* Internet Explorer and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.Search-here {
+
+  width: 500px;
+  /* Set a fixed width for the image */
+  height: auto;
+  /* Maintain aspect ratio */
+  box-sizing: border-box;
+  /* Ensure padding and border are included in the element's total width and height */
+  display: block;
+  /* Ensure the image behaves as a block element */
+  margin: 0 auto;
+  /* Center the image horizontally */
+  margin-top: 40px;
+
+}
