@@ -41,7 +41,7 @@ import SignUp from "./SignUp";
 import Footer from "./Footer";
 import "../CSS/Navbar.css";
 import "../CSS/SearchBar.css";
-
+import { baseURL } from "../URLs";
 
 export const SearchBar = () => {
   const toast = useToast(); // Initialize toast
@@ -216,7 +216,7 @@ export const SearchBar = () => {
               <WrapItem>
                 <Avatar
                   size="md"
-                  src={`http://localhost:5000/${details.profilepic}`}
+                  src={`${baseURL}/${details.profilepic}`}
                 />
               </WrapItem>
               <WrapItem position="relative">

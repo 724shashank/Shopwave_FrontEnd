@@ -12,6 +12,7 @@ import { cartDetail } from "../redux/slice/cartDetails";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import "../CSS/Navbar.css";
+import { baseURL } from "../URLs";
 
 
 const Navbar = () => {
@@ -115,7 +116,7 @@ const Navbar = () => {
             <WrapItem>
               <Avatar
                 size="md"
-                src={`http://localhost:5000/${details.profilepic}`}
+                src={`${baseURL}/${details.profilepic}`}
               />
             </WrapItem>
             <WrapItem position="relative">

@@ -32,7 +32,7 @@ import { cartDetail } from "../redux/slice/cartDetails";
 import { categoryProd } from "../redux/slice/categoryProd";
 import { useParams } from "react-router-dom";
 import "../CSS/ItemCategory.css";
-
+import { baseURL } from "../URLs";
 const ItemCategory = () => {
   const toast = useToast(); // Initialize toast
   const dispatch = useDispatch();
@@ -169,7 +169,7 @@ const ItemCategory = () => {
             </Badge>
             <CardBody>
               <Image
-                src={`http://localhost:5000/${product.imageUrl}`}
+                src={`${baseURL}/${product.imageUrl}`}
                 alt={product.name}
                 className="item-image"
               />

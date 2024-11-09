@@ -32,6 +32,7 @@ import { cartDetail } from "../redux/slice/cartDetails";
 import { fetchProducts } from "../redux/slice/product";
 import { motion, AnimatePresence } from "framer-motion";
 import "../CSS/Item.css";
+import { baseURL } from "../URLs";
 
 const Item = () => {
   const dispatch = useDispatch();
@@ -187,7 +188,7 @@ const Item = () => {
                 </Badge>
                 <CardBody>
                   <Image
-                    src={`http://localhost:5000/${product.imageUrl}`}
+                    src={`${baseURL}/${product.imageUrl}`}
                     alt={product.name}
                     className="item-image"
                   />

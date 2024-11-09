@@ -6,7 +6,7 @@ import {listProducts,unList} from '../redux/slice/listProducts'
 import Header from './Menu';
 import Footer from './Footer';
 import '../CSS/ListProducts.css';
-
+import { baseURL } from "../URLs";
 
 export const ListProducts = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export const ListProducts = () => {
         <VStack spacing="20px" align="stretch" key={item._id}>
           <HStack className="list-products-hstack">
             <Box className="product-image-box">
-            <Image src={`http://localhost:5000/${item.imageUrl}`} alt={item.name} objectFit='cover' boxSize="100px"/>
+            <Image src={`${baseURL}/${item.imageUrl}`} alt={item.name} objectFit='cover' boxSize="100px"/>
             </Box>
 
             <Box className="product-details-box">
