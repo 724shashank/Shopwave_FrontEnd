@@ -10,7 +10,7 @@ const items = [
   '/icons/tv.png',
   '/icons/speaker.jpg',
   '/icons/phone.png',
-  '/icons/Projector.png',
+  '/icons/projector.png',
 ];
 
 export const CustomCarousel = () => {
