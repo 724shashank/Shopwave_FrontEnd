@@ -368,7 +368,7 @@ export const SearchBar = () => {
           </Flex>
         ) : (
           <img
-            src="/icons/Search.png"
+            src="/icons/s*earch.png"
             alt="Cart is empty"
             className="Search-here"
           />
