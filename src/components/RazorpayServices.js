@@ -2,7 +2,7 @@ import axios from 'axios';
 import { baseURL } from '../URLs';
 const handleCheckout = async (cartTotal, authToken) => {
     try {
-        const response = await axios.post(`${baseURL}/payment/order`, {
+        const response = await axios.post(`${baseURL}/api/payment/order`, {
             amount: cartTotal * 100, 
             currency: 'INR', 
         }, {
@@ -24,7 +24,7 @@ const handleCheckout = async (cartTotal, authToken) => {
                 console.log("Payment successful:", response);
                 // Send the payment response to your server for verification
                 try {
-                    await axios.post(`${baseURL}payment/verify`, response, {
+                    await axios.post(`${baseURL}/api/payment/verify`, response, {
                         headers: { authtoken: authToken },
                     });
                     alert("Payment Verified and Successful!");
