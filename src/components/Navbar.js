@@ -79,7 +79,7 @@ const Navbar = () => {
         className="wrap"
       >
         <WrapItem>
-          <Avatar size="xl" src="/logo/Logo.png" />
+          <Avatar size="xl" src="/logo/logo.png" />
         </WrapItem>
       </Wrap>
 
