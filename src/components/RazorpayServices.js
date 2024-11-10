@@ -3,7 +3,7 @@ import { baseURL } from '../URLs';
 const handleCheckout = async (cartTotal, authToken) => {
     try {
         const response = await axios.post(`${baseURL}/api/payment/order`, {
-            amount: cartTotal * 100, 
+            amount: cartTotal, 
             currency: 'INR', 
         }, {
             headers: {
