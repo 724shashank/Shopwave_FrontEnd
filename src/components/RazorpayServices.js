@@ -24,7 +24,7 @@ const handleCheckout = async (cartTotal, authToken) => {
                 console.log("Payment successful:", response);
                 // Send the payment response to your server for verification
                 try {
-                    await axios.post(`${baseURL}/api/payment/verify`, response, {
+                    await axios.post(`${baseURL}/payment/verify`, response, {
                         headers: { authtoken: authToken },
                     });
                     alert("Payment Verified and Successful!");
