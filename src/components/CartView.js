@@ -80,7 +80,7 @@ export const CartView = () => {
 
   const handleRemoveItem = async (productId) => {
     const removePromise = new Promise((resolve, reject) => {
-      const sound = new Audio("/audio/Remove.mp3");
+      const sound = new Audio("/audio/remove.mp3");
       try {
         dispatch(remove({ productId }));
         sound.play(); // Play the sound immediately after successful addition
