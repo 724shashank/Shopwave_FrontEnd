@@ -43,7 +43,7 @@ export const CartView = () => {
       for (const item of cartDetails) {
         try {
           const response = await axios.get(
-            `${baseURL}/product/viewproduct/${item.product}`
+            `${baseURL}/api/product/viewproduct/${item.product}`
           );
           details[item.product] = response.data;
         } catch (error) {
@@ -111,7 +111,7 @@ export const CartView = () => {
 
   const updateCart = async (productId, quantity) => {
     await fetch(
-      `${baseURL}/cart/addtocart/${productId}/${quantity}`,
+      `${baseURL}/api/cart/addtocart/${productId}/${quantity}`,
       {
         method: "POST",
         headers: {
@@ -163,7 +163,7 @@ export const CartView = () => {
                                 width="300px"
                               >
                                 <img
-                                  src={`http://localhost:5000/${productDetail.imageUrl}`}
+                                  src={`${baseURL}/${productDetail.imageUrl}`}
                                   alt={productDetail.name}
                                   className="imageSize"
                                 />
