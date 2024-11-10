@@ -2,7 +2,7 @@
 import { baseURL } from '../URLs';
 export const handleAddToCart = async (productId, quantity, authtoken) => {
     try {
-      const response = await fetch(`${baseURL}/cart/addtocart/${productId}/${quantity}`, {
+      const response = await fetch(`${baseURL}/api/cart/addtocart/${productId}/${quantity}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
