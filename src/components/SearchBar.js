@@ -301,7 +301,7 @@ export const SearchBar = () => {
 
                 <CardBody>
                   <Image
-                    src={`http://localhost:5000/${product.imageUrl}`}
+                    src={`${baseURL}/${product.imageUrl}`}
                     alt={product.name}
                     className="item-image"
                   />
